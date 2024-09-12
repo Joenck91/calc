@@ -27,99 +27,108 @@ function split(primeiroValor, segundoValor) {
     return primeiroValor / segundoValor;
 };
 function iqual() {
-    //executar a operação
-    primeiroValor = Number(arrayValoresButtons[0]);
-    segundoValor = Number(arrayValoresButtons[2]);
+    
+    primeiroValor = Number(arrayValoresButtons[0]); //Definindo primeiro número da operação
+    segundoValor = Number(arrayValoresButtons[2]); //Definindo o segundo número da operação
     operador = arrayValoresButtons[1];
-    switch(operador){
+
+    switch (operador) {
         case "/":
-            resultado = split(primeiroValor,segundoValor);
-            visor.textContent = resultado;
+            resultado = split(primeiroValor, segundoValor);
+            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;
             console.log(`O resultado é ${resultado}.`);
             arrayValoresButtons = [];
             return;
         case "+":
             resultado = sum(primeiroValor, segundoValor);
-            visor.textContent = resultado;
+            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;
             console.log(`O resultado é ${resultado}.`);
-            arrayValoresButtons = [];            
+            arrayValoresButtons = [];
             return;
         case "-":
             resultado = subtract(primeiroValor, segundoValor);
-            visor.textContent = resultado;
+            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;
             console.log(`O resultado é ${resultado}.`);
             arrayValoresButtons = [];
             return;
         case "x":
             resultado = multiply(primeiroValor, segundoValor);
-            visor.textContent = resultado;
+            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;
             console.log(`O resultado é ${resultado}.`);
             arrayValoresButtons = [];
             return;
-
     }
-    arrayValoresButtons = []
+    // arrayValoresButtons = []
     console.log(arrayValoresButtons);
-
-}
-function zerar(valor) {
-    console.log(`Botão '${valor}' foi clicado e array zerado.`);
-    return arrayValoresButtons = [];
 }
 function aposClique(valor) {// Função que faz o tratamento dos dados bos botões clicados.
     if (isNaN(valor) == false) { // Se for numero.
         if (arrayValoresButtons[0] == null) { //Se o array que guarda os dados da operação estiver vazio.
             arrayValoresButtons[0] = valor;//Acrescenta o valor do botão no primeiro indice do array.
-            primeiroValor = arrayValoresButtons[0];//A variável primeiroValor recebe o indice 0 do array.
-            visor.textContent = arrayValoresButtons.join("");
+            visor.textContent = arrayValoresButtons.join(""); //Mostra a operação no visor da calculadora.
             console.log(`Primeiro clique foi no numero ${primeiroValor}`);
             console.log(arrayValoresButtons);
             return;
         };
-        if(arrayValoresButtons[0] == 0 && valor == 0){
-            arrayValoresButtons[0] = 0;
-            visor.textContent = arrayValoresButtons.join("");
+        if (arrayValoresButtons[0] == 0 && valor == 0) { // Se primeiro numero for 0 e o valor atual for 0
+            arrayValoresButtons[0] = valor;// Mantém valor 0
+            visor.textContent = arrayValoresButtons.join("");//Mostra a operação no visor da calculadora.
+            console.log("Numero 0 foi clicado novamente")
             return;
         }
         if (arrayValoresButtons[0] != null && arrayValoresButtons[1] == null) {//Se os indice 0 do array estiver cheio e o 1 não.
             arrayValoresButtons[0] += valor;//Soma o valor do botão clicado com o valor do indice 0, assim cria um numero de 2 digitos.
-            primeiroValor = arrayValoresButtons[0];//Atualiza o valor do primeiro numero da operação.
-            visor.textContent = arrayValoresButtons.join("");
+            visor.textContent = arrayValoresButtons.join("");//Mostra a operação no visor da calculadora.
             console.log(`Adicionado o numero ${valor} ao primeiro valor da operação resultando em ${primeiroValor}`);
             console.log(arrayValoresButtons);
             return;
         };
         if (arrayValoresButtons[0, 1] != null && arrayValoresButtons[2] == null) { //Se o primeiro e o segundo indices do array não estiverem vazios e o valor for number
-            arrayValoresButtons[2] = valor;
-            segundoValor = arrayValoresButtons[2];
-            visor.textContent = arrayValoresButtons.join("");
+            arrayValoresButtons[2] = valor;//adiciona valor do clique no indice 2 do
+            visor.textContent = arrayValoresButtons.join("");//Mostra a operação no visor da calculadora.
             console.log(`Segundo valor escolhido foi ${valor}`);
             console.log(arrayValoresButtons);
             return;
         };
-        if (arrayValoresButtons[0, 1, 2] != null && isNaN(valor) == false) {
-            arrayValoresButtons[2] += valor;
-            visor.textContent = arrayValoresButtons.join("");
+        if (arrayValoresButtons[0, 1, 2] != null && isNaN(valor) == false) {//Se nenhum indice do array estiver vazio e valor ser do tipo number
+            arrayValoresButtons[2] += valor;//Soma valor do segundo numero com o do proximo xlique
+            visor.textContent = arrayValoresButtons.join("");//Mostra a operação no visor da calculadora.
             console.log(`Adicionado numero ${valor} ao segundo valor da operação resultando em ${arrayValoresButtons[2]}. `);
             console.log(arrayValoresButtons);
             return;
         };
-
-    } else {// se não for numero
-        if (arrayValoresButtons[0] == null) {
-            alert("Escolha um numero");
+        if (arrayValoresButtons[0, 1, 2] != null && isNaN(valor)) {// Se o primeiro numero, o operador e o segundo numero ja foram clicados e o valor do botão não é numero
+            iqual();// Resolve a equação
+            arrayValoresButtons[0] = resultado;//Coloca o resultado da equação como primeiro numero da proxima operação
+            arrayValoresButtons[1] = valor;//Usa o operador clicado depois que a ultima operação ja tinha sido montada
+            visor.textContent = arrayValoresButtons.join("");//Mostra a operação no visor da calculadora.
+            return;
+        }
+    } else if (arrayValoresButtons[2] != null && valor != '=') {
+        iqual();
+        arrayValoresButtons[0] = resultado;
+        arrayValoresButtons[1] = valor;
+        visor.textContent = arrayValoresButtons.join(""); //Mostra a operação no visor da calculadora.
+        return;
+    }
+    else {// se não for numero
+        if (arrayValoresButtons[0] == null) {//Se o array estiver vazio
+            visor.textContent = "Inicie com números";
         } else {
             switch (valor) {
                 case "c":
-                    arrayValoresButtons = [];
-                    visor.textContent = arrayValoresButtons.join("");
+                    arrayValoresButtons = []; //Esvazia o array
+                    visor.textContent = "Calculadora reiniciada";//Mostra a operação no visor da calculadora.
                     console.log(`Botão ${valor} clicado. Array zerado`);
                     console.log(arrayValoresButtons);
                     return;
                 case "=":
-                    if(arrayValoresButtons[2] == null){
-                        arrayValoresButtons[2] = arrayValoresButtons[0];
-                        visor.textContent = arrayValoresButtons.join("");
+                    if (arrayValoresButtons[1] == null) {// Se só  for digitado o primeiro numero e depois clicado em =, manterá o mesmo primeiro numero
+                        arrayValoresButtons[0];//Mantem o primeiro numero clicado.
+                        visor.textContent = arrayValoresButtons.join("");//Mostra a operação no visor da calculadora.
+                    } else if (arrayValoresButtons[2] == null) { // Se o segundo numero não foi escolhido
+                        arrayValoresButtons[2] = arrayValoresButtons[0];//Faz com que o segundo numero seja igual o primeiro.
+                        visor.textContent = arrayValoresButtons.join("");//Mostra a operação no visor da calculadora.
                     }
                     iqual();
                     return;
@@ -127,15 +136,17 @@ function aposClique(valor) {// Função que faz o tratamento dos dados bos botõ
                 case "x":
                 case "-":
                 case "+":
-                    arrayValoresButtons[1] = valor;
-                    visor.textContent = arrayValoresButtons.join("");
+                    arrayValoresButtons[1] = valor;//Recebe a string do operador clicado
+                    visor.textContent = arrayValoresButtons.join("");//Mostra a operação no visor da calculadora.
                     console.log(`Foi escolhido o operador '${valor}'.`);
                     console.log(arrayValoresButtons);
                     return;
 
             }
+
         }
     }
+
 }
 
 
