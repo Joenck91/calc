@@ -26,42 +26,40 @@ function split(primeiroValor, segundoValor) {
     }
     return primeiroValor / segundoValor;
 };
-function iqual() {
-    
+function iqual() {//Função chamada quando clicado no botão = ou quando a operação se estender para um segundo operador. Assim ela resolve a operação entre o primeiro e segundo numero primeiro.
+
     primeiroValor = Number(arrayValoresButtons[0]); //Definindo primeiro número da operação
     segundoValor = Number(arrayValoresButtons[2]); //Definindo o segundo número da operação
-    operador = arrayValoresButtons[1];
+    operador = arrayValoresButtons[1]; //Definindo o operador que será usado
 
     switch (operador) {
         case "/":
-            resultado = split(primeiroValor, segundoValor);
-            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;
+            resultado = split(primeiroValor, segundoValor);//Executa operação de divisão e armazena resultado
+            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`; //Mostra operação completa no visor
             console.log(`O resultado é ${resultado}.`);
-            arrayValoresButtons = [];
+            arrayValoresButtons = []; //Zera o array para iniciar próximo calculo
             return;
         case "+":
-            resultado = sum(primeiroValor, segundoValor);
-            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;
+            resultado = sum(primeiroValor, segundoValor); //Executa operação de soma e armazena resultado
+            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;//Mostra operação completa no visor
             console.log(`O resultado é ${resultado}.`);
-            arrayValoresButtons = [];
+            arrayValoresButtons = [];//Zera o array para iniciar próximo calculo
             return;
         case "-":
-            resultado = subtract(primeiroValor, segundoValor);
-            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;
+            resultado = subtract(primeiroValor, segundoValor); //Executa operação de subtração e armazena resultado
+            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;//Mostra operação completa no visor
             console.log(`O resultado é ${resultado}.`);
-            arrayValoresButtons = [];
+            arrayValoresButtons = [];//Zera o array para iniciar próximo calculo
             return;
         case "x":
-            resultado = multiply(primeiroValor, segundoValor);
-            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;
+            resultado = multiply(primeiroValor, segundoValor); //Executa operação de multiplicação e armazena resultado
+            visor.textContent = `${arrayValoresButtons.join('')} = ${resultado}`;//Mostra operação completa no visor
             console.log(`O resultado é ${resultado}.`);
-            arrayValoresButtons = [];
+            arrayValoresButtons = [];//Zera o array para iniciar próximo calculo
             return;
     }
-    // arrayValoresButtons = []
-    console.log(arrayValoresButtons);
 }
-function aposClique(valor) {// Função que faz o tratamento dos dados bos botões clicados.
+function aposClique(valor) {// Função que faz o tratamento dos dados dos botões clicados.
     if (isNaN(valor) == false) { // Se for numero.
         if (arrayValoresButtons[0] == null) { //Se o array que guarda os dados da operação estiver vazio.
             arrayValoresButtons[0] = valor;//Acrescenta o valor do botão no primeiro indice do array.
@@ -104,16 +102,16 @@ function aposClique(valor) {// Função que faz o tratamento dos dados bos botõ
             visor.textContent = arrayValoresButtons.join("");//Mostra a operação no visor da calculadora.
             return;
         }
-    } else if (arrayValoresButtons[2] != null && valor != '=') {
-        iqual();
-        arrayValoresButtons[0] = resultado;
-        arrayValoresButtons[1] = valor;
+    } else if (arrayValoresButtons[2] != null && valor != '=') { //Se o segundo valor ja foi escolhido e o valor não é do botão =. Isso quer dizer que a operação vai se estender para um terceiro numero.
+        iqual();//Chama iqual() para resolver a operação do primeiro e segundo numero
+        arrayValoresButtons[0] = resultado; //Como iqual() zera o array, temos que colocar o resultado como primeiro numero de um novo array
+        arrayValoresButtons[1] = valor; //Devido a condição, sabemos que o valor do botão clicado é operador, então armazenamos no array para fazer a próxima operação.
         visor.textContent = arrayValoresButtons.join(""); //Mostra a operação no visor da calculadora.
         return;
     }
     else {// se não for numero
         if (arrayValoresButtons[0] == null) {//Se o array estiver vazio
-            visor.textContent = "Inicie com números";
+            visor.textContent = "Inicie com números";//Exibe mensagem no visor
         } else {
             switch (valor) {
                 case "c":
@@ -153,15 +151,13 @@ function aposClique(valor) {// Função que faz o tratamento dos dados bos botõ
 
 /*------------------------Captura dados dos botões--------------------------------*/
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { //Adiciona um evento assim que o Dom for totalmente carregado.
 
     const button = document.querySelectorAll('button'); //seleciona todos os botões
     button.forEach((button) => { // adiciona um evento de clique a cada botão
-        button.addEventListener("click", (event) => {
+        button.addEventListener("click", (event) => { //Captura o evento clique no elemento Button
             const valorButton = event.target.textContent; // Pega o valor do botão clicado
-            aposClique(valorButton);
-
-
+            aposClique(valorButton); //Chama a função aposclique() para tratar os dados do botões clicados
         });
     });
 });
