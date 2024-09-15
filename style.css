@@ -28,7 +28,7 @@ table {
     max-width: 350px;
 }
 .historyTable{
-    display: none;
+   
     font-size: 16px;
 }
 button{
@@ -60,6 +60,11 @@ th{
     align-items: center;
     width:95%;
    
+}
+.reopen{
+    background-color: aqua;
+    color: black;
+    cursor: pointer;
 }
 
 @media (min-width: 600px){
