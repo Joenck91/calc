@@ -15,9 +15,6 @@ let object = {
     calc: arrayValoresButtons
 };
 
-
-
-
 /*---------------------------------------Funções globais ----------------------------*/
 //FUNÇÃO SOMA
 function sum(primeiroValor, segundoValor) {
@@ -79,8 +76,6 @@ function iqual() {//Função chamada quando clicado no botão = ou quando a oper
             //console.log(arrayValoresButtons);
             return;
     }
-
-
 }
 //ATUALIZA A TABELA DE HISTÓRICO DE OPERAÇÕES
 function upDateTable() {
@@ -89,7 +84,7 @@ function upDateTable() {
     let datetime = register.toLocaleString(); // Formata a data e a hora em uma única string
     let object = {
         date: datetime,
-        calc: arrayValoresButtons.join("")
+        calc: [...arrayValoresButtons]
     };
 
     //ADICIONA AS OPERAÇÕES NO ARRAY
@@ -110,19 +105,36 @@ function rowHtml() {
         const row = document.createElement('tr');//Cria uma linha.
         const datetimeColumn = document.createElement('td');//Cria a celula do tempo
         datetimeColumn.textContent = object.date;//Coloca datetime no conteudo da celula
-        const arrayValoresButtonsColumn = document.createElement('td');//Cria celula das operações.
-        arrayValoresButtonsColumn.textContent = object.calc;//Coloca arrayValoresButtons no conteudo da celula.
+        const tdButton = document.createElement('td');//Cria celula das operações.
+        const calcButton = document.createElement('button');//Cria botão que terá as operções
+        calcButton.classList.add('history_table_button');//Adiciona uma classe ao botão
+        calcButton.textContent = object.calc.join("");//Coloca arrayValoresButtons no conteudo da celula.
+
+        // ADICIONA OUVINTE PARA CAPTURA DO BOTÃO E CONVERTE DE STRING PARA ARRAY NOVAMENTE
+        calcButton.addEventListener('click', (event) => {
+        console.log("chegou"); // Verifica se o evento está sendo disparado
+        arrayValoresButtons = event.target.textContent; // Atualiza arrayValoresButtons com o valor do botão clicado
+        arrayValoresButtons = arrayValoresButtons.match(/\d+|[^\d]/g); // Expressão regular para capturar números e operadores
+        visor.textContent = arrayValoresButtons.join("");
+        }); 
+       
         row.appendChild(datetimeColumn);//Adiciona a celula á linha
-        row.appendChild(arrayValoresButtonsColumn);//adiciona a celula á linha
+        row.appendChild(tdButton);//adiciona a celula á linha
+        tdButton.appendChild(calcButton);
         tableRow.appendChild(row);//Coloca a linha na tabela
     }
     );
 }
-
-
-
 //TRATA OS VALORES CAPTURADOS NO EVENTO CLICK
 function aposClique(valor) {// Função que faz o tratamento dos dados dos botões clicados.
+    //SE VALOR É UMA OPERAÇÃO DO HISTÓRICO
+    if (typeof valor === 'string' && valor.includes(' ')){
+       arrayValoresButtons = arrayValoresButtons = valor.match(/\d+|[^\d]/g); // Expressão regular para capturar números e operadores
+        console.log(arrayValoresButtons);
+        return;
+    }
+
+
     //SE FOR CLICADO EM 'C'
     if (valor == "c") { //Sempre que clicar no "c", vai reinicar a calculadora
         arrayValoresButtons = []; //Reinica a calculados
@@ -132,7 +144,6 @@ function aposClique(valor) {// Função que faz o tratamento dos dados dos botõ
         //console.log(arrayValoresButtons);
         return;
     }
-
     //SE FOR NUMERO
     if (isNaN(valor) == false) { // Se for numero.
         //DEFINE PRIMEIRO NUMERO
@@ -175,7 +186,6 @@ function aposClique(valor) {// Função que faz o tratamento dos dados dos botõ
             return;
         };
     }
-
     //SE NÃO FOR NUMERO
     if (isNaN(valor)) {// se não for numero
 
@@ -240,7 +250,8 @@ function aposClique(valor) {// Função que faz o tratamento dos dados dos botõ
 /*------------------------Captura dados dos botões--------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => { //Adiciona um evento assim que o Dom for totalmente carregado.
-
+    
+    //CAPTURA DADOS DOS BOTÕES DA CALCULADORA
     const button = document.querySelectorAll('button'); //seleciona todos os botões
     button.forEach((button) => { // adiciona um evento de clique a cada botão
         button.addEventListener("click", (event) => { //Captura o evento clique no elemento Button
@@ -248,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => { //Adiciona um evento assim
             aposClique(valorButton); //Chama a função aposclique() para tratar os dados do botões clicados
         });
     });
+
 
 });
 
