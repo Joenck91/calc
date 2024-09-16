@@ -112,12 +112,12 @@ function rowHtml() {
 
         // ADICIONA OUVINTE PARA CAPTURA DO BOTÃO E CONVERTE DE STRING PARA ARRAY NOVAMENTE
         calcButton.addEventListener('click', (event) => {
-        console.log("chegou"); // Verifica se o evento está sendo disparado
-        arrayValoresButtons = event.target.textContent; // Atualiza arrayValoresButtons com o valor do botão clicado
-        arrayValoresButtons = arrayValoresButtons.match(/\d+|[^\d]/g); // Expressão regular para capturar números e operadores
-        visor.textContent = arrayValoresButtons.join("");
-        }); 
-       
+            console.log("chegou"); // Verifica se o evento está sendo disparado
+            arrayValoresButtons = event.target.textContent; // Atualiza arrayValoresButtons com o valor do botão clicado
+            arrayValoresButtons = arrayValoresButtons.match(/\d+|[^\d]/g); // Expressão regular para capturar números e operadores
+            visor.textContent = arrayValoresButtons.join("");
+        });
+
         row.appendChild(datetimeColumn);//Adiciona a celula á linha
         row.appendChild(tdButton);//adiciona a celula á linha
         tdButton.appendChild(calcButton);
@@ -128,8 +128,8 @@ function rowHtml() {
 //TRATA OS VALORES CAPTURADOS NO EVENTO CLICK
 function aposClique(valor) {// Função que faz o tratamento dos dados dos botões clicados.
     //SE VALOR É UMA OPERAÇÃO DO HISTÓRICO
-    if (typeof valor === 'string' && valor.includes(' ')){
-       arrayValoresButtons = arrayValoresButtons = valor.match(/\d+|[^\d]/g); // Expressão regular para capturar números e operadores
+    if (typeof valor === 'string' && valor.includes(' ')) {
+        arrayValoresButtons = arrayValoresButtons = valor.match(/\d+|[^\d]/g); // Expressão regular para capturar números e operadores
         console.log(arrayValoresButtons);
         return;
     }
@@ -250,7 +250,7 @@ function aposClique(valor) {// Função que faz o tratamento dos dados dos botõ
 /*------------------------Captura dados dos botões--------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => { //Adiciona um evento assim que o Dom for totalmente carregado.
-    
+
     //CAPTURA DADOS DOS BOTÕES DA CALCULADORA
     const button = document.querySelectorAll('button'); //seleciona todos os botões
     button.forEach((button) => { // adiciona um evento de clique a cada botão
