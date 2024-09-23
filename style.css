@@ -35,19 +35,27 @@ button{
     font-size: 26px;
     background-color: rgb(183,183,183);
     cursor: pointer;
+    width: 100%;
 }
 button:hover{
     background-color: rgb(87, 170, 202);
 }
 .visor{
     font-size:26px;
-    min-width: 100%;
-    white-space: nowrap;
+    width: 100%;
+    white-space: nowrap; /* Impede a quebra de linha */
+    overflow: hidden; /* Esconde o texto que ultrapassar o limite do elemento */
+    text-overflow: ellipsis; /* Exibe "..." no final do texto cortado */
+    direction: rtl; /* Inverte a direção do texto, mostrando os números mais recentes à esquerda */
+    text-align: center; /* Alinha o texto à esquerda */
+    padding-left: 10px;
+    padding-right: 10px;
 }
 td{
     padding: 0;
-    border: 0;
+    border: solid rgb(148, 148, 148) 1px;
     max-width: 150px;
+  
 }
 th{
     padding: 10px;
