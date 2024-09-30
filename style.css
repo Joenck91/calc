@@ -1,100 +1,158 @@
-*{
+*{/*Definições Gerais*/
     margin: 0;
     border: 0;
     box-sizing: border-box;
 }
-body{
+html{
+    min-height: 100vh; /* 100% da altura da viewport */
+}
+
+body{/*Corpo da pagina*/
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 100%;
+    justify-content: center;
 }
-h1{
-    margin-top: 20px;
-    padding: 20px;
-}
-table {
-    background-color: rgb(183, 183, 183);
-    border: solid 2px rgb(128, 128, 128);
+h1{/*Titulo*/
+    margin-top: 5px;
     padding: 5px;
-    color:rgb(12, 12, 12) ;
-    margin: 5px;
-    width: 100%;
-    font-size: 26px;
     text-align: center;
-
 }
-.calcTable{
-    max-width: 350px;
-}
-.calcTable button{
-    border: 0;
-    padding:25px;
-}
-button{
-    font-size: 26px;
-    background-color: rgb(183,183,183);
-    cursor: pointer;
-    width: 100%;
-}
-button:hover{
-    background-color: rgb(87, 170, 202);
-}
-.visor{
-    font-size:26px;
-    width: 100%;
-    white-space: nowrap; /* Impede a quebra de linha */
-    overflow: hidden; /* Esconde o texto que ultrapassar o limite do elemento */
-    text-overflow: ellipsis; /* Exibe "..." no final do texto cortado */
-    direction: rtl; /* Inverte a direção do texto, mostrando os números mais recentes à esquerda */
-    text-align: center; /* Alinha o texto à esquerda */
-    padding-left: 10px;
-    padding-right: 10px;
-}
-td{
-    padding: 0;
-    border: solid rgb(148, 148, 148) 1px;
-    max-width: 150px;
-  
-}
-th{
-    padding: 10px;
-    border: 0;
-    max-width: 150px;
-}
-.divTabelas{
+.divTabelas{/*--Tabelas estão dentro desta DIV*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width:95%;
-   
+    overflow: hidden;
 }
-.reopen{
-    background-color: aqua;
-    color: black;
-    cursor: pointer;
+table {/* Definições gerais das tabelas*/
+    background-color: rgb(183, 183, 183);
+    border: solid 2px rgb(128, 128, 128);
+    border-radius: 15px;
+    color:rgb(12, 12, 12) ;
+    margin: 5px;
+    padding: 5px;
+    max-width: 100%;
+    width: 100%;
 }
 
-@media (min-width: 600px){
-    .divTabelas{
-        max-width: 85%;
-    }
+/*Tabela da Calculadora*/
+.calcTable{
+    max-width: 100%;
+    min-width: 100%;
+    table-layout: fixed;
+    overflow: hidden;
 }
-@media (min-width: 767px){
-    .calcTable{
-        font-size: 38px;
-    }
-    .historyTable{
-        font-size: 20px;
-    }
+.calcTable thead{
+    max-width: 100%;
+    min-width: 100%;
 }
-@media (min-width: 1024px){
-    .divTabelas{
-        flex-direction: row;
-        max-width: 60%;
-    }
-    .calcTable{
-        min-width: 350px;
-    }
+.visorPai{/*Visor esta dentro deste elemento*/
+    padding: 8px;
+    display: flex;
+    width: 100%;    /* Faz o visorPai ocupar toda a largura do cabeçalho */
+    max-width: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.visor{/* Visar da calc*/
+    font-size:26px;
+    max-width: 100%;
+    min-width: 100%;
+    white-space: nowrap; /* Impede a quebra de linha */
+    overflow: hidden; /* Esconde o texto que ultrapassar o limite do elemento */
+    text-overflow:ellipsis; /* Exibe "..." no final do texto cortado */
+    direction:ltr; /* Inverte a direção do texto, mostrando os números mais recentes à esquerda */
+    text-align: right; /* Alinha o texto à esquerda */
+}
+th{/*Célula do visor*/
+    padding: 10px;
+    border: 0;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 10px;
+    box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.322),
+    0px 1px 5px rgba(0, 0, 0, 0.322),
+    -1px 0px 5px rgba(0, 0, 0, 0.322),
+    0px -1px 5px rgba(0, 0, 0, 0.322);
+    white-space: nowrap;   /* Impede a quebra de linha */
+    overflow: hidden;      /* Esconde o texto que ultrapassar o limite do elemento */
+    text-overflow: ellipsis; /* Exibe "..." no final do texto cortado */
+}
+.calcTable tr{/*Linhas*/
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+.calcTable td{/*Células dos botões*/
+    border-radius: 15px;
+    box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.322),
+    0px 1px 5px rgba(0, 0, 0, 0.322),
+    -1px 0px 5px rgba(0, 0, 0, 0.322),
+    0px -1px 5px rgba(0, 0, 0, 0.322);
+    margin: 1px;
+    padding: 0;
+    width: 33%;
+    aspect-ratio: 1 / 1; /* Mantém a altura igual à largura */
+    display: flex;
+    border-radius: 15px;
+}
+.calcTable button{/*Definições gerais dos botões da calc*/
+    border-radius: 15px;
+    font-size: 26px;
+    background-color: rgb(180, 180, 180);   
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+button:hover{/*Efeito quando mouse passa por cima dos botões clicáveis*/
+    background-color: rgb(87, 170, 202);
+}
+.calcTable td::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* Garante que a altura seja sempre 100% da largura */
+  }
+
+
+
+
+/*Tabela do histórico de operações*/
+.historyTable{
+    table-layout: fixed;
+}
+
+.historyTable thead td{/*titulo da tabela histórico*/
+    text-align: center;
+    border-width: 10%;
+    font-size: 26px;
+}
+.historyTable tbody td{/*Células do corpo da tabela*/
+    text-align: center;
+    font-size: 20px;
+    padding: 1px;  
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
+.historyTable tbody tr:last-child td {/*Células da ultima linha do corpo da tabela*/
+    border-bottom: none; /* Remove a borda inferior da última linha */
+}
+
+.history_table_button{/*Célula que mostra as operações*/
+    font-size: 20px;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+    background-color: rgb(183, 183, 183);
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;   /* Impede a quebra de linha */
+    overflow: hidden;      /* Esconde o texto que ultrapassar o limite do elemento */
+    text-overflow: ellipsis; /* Exibe "..." no final do texto cortado */
+
+}
+.celulaTime{/*Célula que mostra data e hora da operação*/
+    max-width: 50%;   
 }

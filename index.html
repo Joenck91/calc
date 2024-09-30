@@ -7,50 +7,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Calduladora</h1>
+    <h1>Calculadora</h1>
     <div class="divTabelas">
-        <table class="calcTable">
-            <thead>
-                <tr>
+        <table class="calcTable"><!-- TABELA DA CALCULADORA-->
+            <thead><!-- Cabeçalho que mostrará o visor -->
+                <tr class="visorPai">
                     <th colspan="4">
-                        <p class="visor" id="visor">Bem Vindo</p>
+                        <p class="visor" id="visor">Bem Vindo</p><!-- Visor da calculadora-->
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody><!-- Corpo da calculadora com os botões-->
                 <tr>
                     <td><button data-info="7">7</button></td>
                     <td><button data-info="8">8</button></td>
                     <td><button data-info="9">9</button></td>
-                    <td><button id="start">c</button></td>
+                    <td><button id="start">c</button></td><!-- C zerar calculadora-->
                 </tr>
                 <tr>
                     <td><button data-info="4">4</button></td>
                     <td><button data-info="5">5</button></td>
                     <td><button data-info="6">6</button></td>
-                    <td><button id="split">/</button></td>
+                    <td><button id="split">/</button></td><!-- Divisão-->
                 </tr>
                 <tr>
                     <td><button data-info="1">1</button></td>
                     <td><button data-info="2">2</button></td>
                     <td><button data-info="3">3</button></td>
-                    <td><button id="multiply" >x</button></td>
+                    <td><button id="multiply" >x</button></td><!-- Multiplicação-->
                 </tr>
                 <tr>
                     <td><button data-info="0">0</button></td>
-                    <td><button id="iqual">=</button></td>
-                    <td><button id="sum">+</button></td>
-                    <td><button id="subtract">-</button></td>
+                    <td><button id="iqual">=</button></td><!-- Função igual-->
+                    <td><button id="sum">+</button></td><!-- Somar-->
+                    <td><button id="subtract">-</button></td><!-- Subtrair-->
                 </tr>
             </tbody>
         </table>
-        <table class="historyTable">
+        <table class="historyTable"><!--TABELA DO HISTÓRICO DE OPERAÇÕES-->
             <thead>
                 <tr>
-                    <td colspan="2" >Histórico</td>
+                    <td colspan="2" >Histórico</td><!-- CABEÇALHO SÓ COM TITULO-->
                 </tr>
             </thead>
-            <tbody id="tablerow">
+            <tbody id="tablerow" class="historyTime"><!--CORPO DA TABELA HISTÓRICO ONDE VAI APARECER TEMPO E AS OPERAÇÕES ANTERIORES-->
 
             </tbody>
         </table>

@@ -1,0 +1,55 @@
+@media (min-width: 600px) and (min-height: 374px){/*Iphone SE*/
+    h1{
+        margin: 0;
+        font-size: 20px;
+        border-radius: 5px;
+        position: fixed;
+        right: 20px;
+        top: 20px
+
+    }
+    .divTabelas{
+        flex-direction: row;
+    }
+    .calcTable{
+        width: 50%;
+        max-height: 100%;
+    }
+    .calcTable button{/*Definições gerais dos botões da calc*/
+        padding:20px;
+    }
+    .historyTable{
+        width: 50%;
+        max-height: 300px;
+    }
+}
+@media (min-width: 600px) and (min-height:390px){/*Iophne XR*/
+    h1{
+        margin: 0;
+        font-size: 20px;
+        border-radius: 5px;
+        position: fixed;
+        right: 20px;
+        top: 20px
+
+    }
+    body{
+        background-color: aqua;
+    }
+    .divTabelas{
+        flex-direction: row;
+        height: 100vh;
+        background-color:black;
+    }
+    .calcTable{
+        min-width: 45%;
+        max-height: 350px;
+    }
+    .calcTable button{/*Definições gerais dos botões da calc*/
+        padding:20px;
+    }
+    .historyTable{
+        min-width: 45%;
+        max-height: 350px;
+    }
+}

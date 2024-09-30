@@ -105,6 +105,7 @@ function rowHtml() {
         const row = document.createElement('tr');//Cria uma linha.
         const datetimeColumn = document.createElement('td');//Cria a celula do tempo
         datetimeColumn.textContent = object.date;//Coloca datetime no conteudo da celula
+        datetimeColumn.classList.add('celulaTime')
         const tdButton = document.createElement('td');//Cria celula das operações.
         const calcButton = document.createElement('button');//Cria botão que terá as operções
         calcButton.classList.add('history_table_button');//Adiciona uma classe ao botão
@@ -133,13 +134,11 @@ function aposClique(valor) {// Função que faz o tratamento dos dados dos botõ
         console.log(arrayValoresButtons);
         return;
     }
-
-
     //SE FOR CLICADO EM 'C'
     if (valor == "c") { //Sempre que clicar no "c", vai reinicar a calculadora
         arrayValoresButtons = []; //Reinica a calculados
         historyTable = [];//Reinicia o histórico
-        visor.textContent = "Calculadora reiniciada";//Mostra a operação no visor da calculadora.
+        visor.textContent = "Reiniciado";//Mostra a operação no visor da calculadora.
         //console.log(`Botão ${valor} clicado. Array zerado`);
         //console.log(arrayValoresButtons);
         return;
