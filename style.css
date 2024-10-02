@@ -29,7 +29,6 @@ h1 {
     align-items: center;
     width: 95%;
     height: 100vh;
-    overflow: hidden;
 }
 table {
     /* Definições gerais das tabelas*/
@@ -186,7 +185,7 @@ button:hover {
 
 
 /*CELULARES MODO PAISAGEM*/
-@media (min-width:667px) and (min-height:344px){/*Galaxy Z Fold 5*/
+@media (min-width:540px) and (min-height:344px){/*Galaxy Z Fold 5*/
     body{
         justify-content: center;
         align-items:right;
