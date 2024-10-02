@@ -1,35 +1,45 @@
-*{/*Definições Gerais*/
+* {
+    /*Definições Gerais*/
     margin: 0;
     border: 0;
     box-sizing: border-box;
 }
-html{
-    min-height: 100vh; /* 100% da altura da viewport */
+
+html {
+    min-height: 100vh;
+    /* 100% da altura da viewport */
 }
 
-body{/*Corpo da pagina*/
+body {
+    /*Corpo da pagina*/
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-h1{/*Titulo*/
+
+h1 {
+    /*Titulo*/
     padding: 5px;
     text-align: center;
 }
-.divTabelas{/*--Tabelas estão dentro desta DIV*/
+
+.divTabelas {
+    /*--Tabelas estão dentro desta DIV*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:95%;
+    width: 95%;
     overflow: hidden;
 }
-table {/* Definições gerais das tabelas*/
+
+table {
+    /* Definições gerais das tabelas*/
     background-color: rgb(183, 183, 183);
     border: solid 2px rgb(128, 128, 128);
     border-radius: 15px;
-    color:rgb(12, 12, 12) ;
+    color: rgb(12, 12, 12);
     margin: 5px;
     padding: 5px;
     max-width: 100%;
@@ -37,58 +47,79 @@ table {/* Definições gerais das tabelas*/
 }
 
 /*Tabela da Calculadora*/
-.calcTable{
+.calcTable {
     width: 100%;
     table-layout: fixed;
     overflow: hidden;
 }
-.calcTable thead{
+
+.calcTable thead {
     max-width: 100%;
     min-width: 100%;
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho flexível */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 colunas de tamanho flexível */
 }
-.visorPai{/*Visor esta dentro deste elemento*/
+
+.visorPai {
+    /*Visor esta dentro deste elemento*/
     padding: 8px;
     display: flex;
-    width: 100%;    /* Faz o visorPai ocupar toda a largura do cabeçalho */
+    width: 100%;
+    /* Faz o visorPai ocupar toda a largura do cabeçalho */
     max-width: 100%;
     min-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.visor{/* Visar da calc*/
-    font-size:26px;
+
+.visor {
+    /* Visar da calc*/
+    font-size: 26px;
     width: 100%;
-    white-space: nowrap; /* Impede a quebra de linha */
-    overflow: hidden; /* Esconde o texto que ultrapassar o limite do elemento */
-    text-overflow:ellipsis; /* Exibe "..." no final do texto cortado */
-    direction:ltr; /* Inverte a direção do texto, mostrando os números mais recentes à esquerda */
-    text-align: right; /* Alinha o texto à esquerda */
+    white-space: nowrap;
+    /* Impede a quebra de linha */
+    overflow: hidden;
+    /* Esconde o texto que ultrapassar o limite do elemento */
+    text-overflow: ellipsis;
+    /* Exibe "..." no final do texto cortado */
+    direction: ltr;
+    /* Inverte a direção do texto, mostrando os números mais recentes à esquerda */
+    text-align: right;
+    /* Alinha o texto à esquerda */
 }
-th{/*Célula do visor*/
+
+th {
+    /*Célula do visor*/
     padding: 10px;
     border: 0;
     width: 100%;
     border-radius: 3px;
     box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.322),
-    0px 1px 3px rgba(0, 0, 0, 0.322),
-    -1px 0px 3px rgba(0, 0, 0, 0.322),
-    0px -1px 3px rgba(0, 0, 0, 0.322);
-    white-space: nowrap;   /* Impede a quebra de linha */
-    overflow: hidden;      /* Esconde o texto que ultrapassar o limite do elemento */
-    text-overflow: ellipsis; /* Exibe "..." no final do texto cortado */
+        0px 1px 3px rgba(0, 0, 0, 0.322),
+        -1px 0px 3px rgba(0, 0, 0, 0.322),
+        0px -1px 3px rgba(0, 0, 0, 0.322);
+    white-space: nowrap;
+    /* Impede a quebra de linha */
+    overflow: hidden;
+    /* Esconde o texto que ultrapassar o limite do elemento */
+    text-overflow: ellipsis;
+    /* Exibe "..." no final do texto cortado */
 }
-.calcTable tr{/*Linhas*/
+
+.calcTable tr {
+    /*Linhas*/
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: right;
 }
-.calcTable td{/*Células dos botões*/
+
+.calcTable td {
+    /*Células dos botões*/
     box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.322),
-    0px 1px 1px rgba(0, 0, 0, 0.322),
-    -1px 0px 1px rgba(0, 0, 0, 0.322),
-    0px -1px 1px rgba(0, 0, 0, 0.322);
+        0px 1px 1px rgba(0, 0, 0, 0.322),
+        -1px 0px 1px rgba(0, 0, 0, 0.322),
+        0px -1px 1px rgba(0, 0, 0, 0.322);
     margin: 1px;
     padding: 0;
     width: 33%;
@@ -96,47 +127,60 @@ th{/*Célula do visor*/
     display: flex;
     border-radius: 25px;
 }
-.calcTable button{/*Definições gerais dos botões da calc*/
+
+.calcTable button {
+    /*Definições gerais dos botões da calc*/
     border-radius: 5px;
     font-size: 26px;
-    background-color: rgba(178, 178, 178, 0.978);   
+    background-color: rgba(178, 178, 178, 0.978);
     cursor: pointer;
     height: 100%;
     width: 100%;
 }
-button:hover{/*Efeito quando mouse passa por cima dos botões clicáveis*/
+
+button:hover {
+    /*Efeito quando mouse passa por cima dos botões clicáveis*/
     background-color: rgb(87, 170, 202);
 }
+
 .calcTable td::before {
     content: '';
-   /* display: block;*/
-    padding-top: 100%; /* Garante que a altura seja sempre 100% da largura */
-  }
+    /* display: block;*/
+    padding-top: 100%;
+    /* Garante que a altura seja sempre 100% da largura */
+}
 
 
 
 
 /*Tabela do histórico de operações*/
-.historyTable{
+.historyTable {
     table-layout: fixed;
 }
 
-.historyTable thead td{/*titulo da tabela histórico*/
+.historyTable thead td {
+    /*titulo da tabela histórico*/
     text-align: center;
     border-width: 10%;
     font-size: 26px;
 }
-.historyTable tbody td{/*Células do corpo da tabela*/
+
+.historyTable tbody td {
+    /*Células do corpo da tabela*/
     text-align: center;
     font-size: 20px;
-    padding: 1px;  
+    padding: 1px;
     border-bottom: 1px solid rgb(128, 128, 128);
 }
-.historyTable tbody tr:last-child td {/*Células da ultima linha do corpo da tabela*/
-    border-bottom: none; /* Remove a borda inferior da última linha */
+
+.historyTable tbody tr:last-child td {
+    /*Células da ultima linha do corpo da tabela*/
+    border-bottom: none;
+    /* Remove a borda inferior da última linha */
 }
 
-.history_table_button{/*Célula que mostra as operações*/
+.history_table_button {
+    /*Célula que mostra as operações*/
     font-size: 20px;
     width: 100%;
     padding: 5px;
@@ -144,21 +188,29 @@ button:hover{/*Efeito quando mouse passa por cima dos botões clicáveis*/
     background-color: rgb(183, 183, 183);
     width: 100%;
     height: 100%;
-    white-space: nowrap;   /* Impede a quebra de linha */
-    overflow: hidden;      /* Esconde o texto que ultrapassar o limite do elemento */
-    text-overflow: ellipsis; /* Exibe "..." no final do texto cortado */
+    white-space: nowrap;
+    /* Impede a quebra de linha */
+    overflow: hidden;
+    /* Esconde o texto que ultrapassar o limite do elemento */
+    text-overflow: ellipsis;
+    /* Exibe "..." no final do texto cortado */
 
 }
-.celulaTime{/*Célula que mostra data e hora da operação*/
-    max-width: 50%;   
+
+.celulaTime {
+    /*Célula que mostra data e hora da operação*/
+    max-width: 50%;
 }
 
 /*CELULARES MODO PAISAGEM*/
-@media (min-width:470px){/*IPHONE SE*/
-    body{
+@media (min-width:470px) {
+
+    /*IPHONE SE*/
+    body {
         height: 100vh;
     }
-    h1{
+
+    h1 {
         margin: 0;
         padding: 0;
         position: fixed;
@@ -166,33 +218,94 @@ button:hover{/*Efeito quando mouse passa por cima dos botões clicáveis*/
         top: 25px;
         font-size: 22px;
     }
-    .divTabelas{
+
+    .divTabelas {
         display: flex;
         flex-direction: row;
         width: 100%;
         height: 99%;
         max-height: 99%;
-      
+
     }
-    .calcTable{
+
+    .calcTable {
         display: flex;
         flex-direction: column;
         width: 50%;
     }
+
     .calcTable td::before {
 
-        padding-top: 92%; /* Garante que a altura seja sempre 100% da largura */
-      }
-    .historyTable{
+        padding-top: 92%;
+        /* Garante que a altura seja sempre 100% da largura */
+    }
+
+    .historyTable {
         width: 50%;
     }
 
 }
-
-@media (min-width: 668px)and (min-height: 360px){
+/*CELULARES MODO RETRATO*/
+@media (min-width: 740px)and (min-height: 360px) {
     .calcTable td::before {
-        padding-top: 75%; /* Garante que a altura seja sempre 100% da largura */
-      }
+        padding-top: 75%;
+    }
 }
 
-/*TABLETS RETRATOS*/
+/*TABLETS PEQUENOS*/
+@media (min-width:540px) and (min-height:720px) { /*surface duo*/
+
+    body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        position: static;
+
+        padding: 10px;
+    }
+
+    .divTabelas {
+        width: 100%;
+        flex-direction: column;
+        justify-content: start;
+    }
+    .calcTable td::before {
+        padding-top: 100%;
+        /* Garante que a altura seja sempre 100% da largura */
+    }
+    .calcTable, .historyTable{
+        width: 70%;
+    }
+}
+
+@media (min-width:740px) and (min-height:1024px){/*RETRATOS*/
+    h1{
+        font-size: 42px;
+     
+    }
+    .calcTable, .historyTable{
+        width: 80%;
+    }
+} 
+
+@media (min-width:912px) and (max-height:820px) {/*PAISAGEM*/
+    h1 {
+        font-size: 42px;
+        position: relative;
+        margin: 0;
+    }   
+    .divTabelas{
+        flex-direction: row;
+        height: 100%;
+    }       
+    .calcTable{
+        width: 80%;
+    }
+}
+
+/*TABLETS GRANDES*/
+
+
