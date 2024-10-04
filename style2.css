@@ -181,28 +181,23 @@ button:hover {
     max-width: 50%;
 }
 
-/*Mobile*/
-@media (orientation: landscape){
+/*Celulares em modo paisagem*/
+@media (min-width:667px) and (max-height:540px) {
     body{
-        display: flex;
         justify-content: center;
     }
     h1{
         display: none;
     }
     .divTabelas{
+        height: 99%;
         display: flex;
-        flex-direction: row;
         justify-content: space-between; /* Espaço entre os dois itens */
         align-items: center; /* Alinha verticalmente os itens no centro */
-        height: 99%;
     }
     .calcTable{
-        width: 50%;
-        height: 100%;
-    }
-    .calcTable td::before {
-        padding-top: 0;
+       height: 100%;
+       width: 50%;
     }
     .calcTable tbody{
         min-height: 100%;
@@ -212,87 +207,149 @@ button:hover {
     .calcTable tr{
         flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
     }
-    .historyTable{
-        width: 50%;
+    .calcTable td::before {
+        padding-top: 0;
     }
+    .historyTable{
+        height: auto; /* Altura flexível */
+        width: 50%; /* Ocupa metade da largura */
+        align-self: center; /* Centraliza verticalmente */
+    }
+
 }
 
-/*tablets*/
-@media (min-width:768px) and (min-height:914px) {/*retrato*/
+/*ipads*/
+@media (min-width:768px) and (min-height:1024px) {/*Retrato*/
     h1{
-        color: aqua;
         font-size: 2.5em;
-        padding: 15px;
     }
     .divTabelas{
-        width: 75%;
+        width: 89%;
     }
-    .calcTable button, .visor{/*Tamanho das fontes do bisor e botões iguais*/
-        font-size: 2em;
+    .calcTable button{/*Botões da calculadora*/
+        font-size: 1.9em;
     }
-    .historyTable thead td{/*Titulo Histórico*/
-        font-size: 2em;
-    }
-    .historyTable tbody td{/*Celula com data e hota*/
-        font-size: 1.5em;
-    }
-    .history_table_button{/*Celula com operação*/
-        font-size: 1em;
-    }
-}
-/*iped pro*/
-@media (max-width: 1025px) and (min-height:1365px){
-    h1{
-        color: rgb(255, 0, 212);
-        padding: 25px;
-        font-size: 3em;
-    }
-    .divTabelas{
-        width: 70%;
-    }
-    .calcTable button, .visor{/*Tamanho das fontes do bisor e botões iguais*/
-        font-size: 2.250em;
-    }
-    .historyTable tbody td{/*Celula com data e hota*/
+    .visor{
         font-size: 1.8em;
     }
-    .history_table_button{/*Celula com operação*/
+    .historyTable thead td{/*Título Histórico*/
+        font-size: 1.950em;
+    }
+    .historyTime td{/*Célula que mostra hora e tempo da operação na tabela histórico*/
+        font-size: 1.5em;
+    }
+    .history_table_button{/*Célula que mostra as ultimas operações*/
+        font-size: 1em;
+    }
+
+}
+/*ipad maiores*/
+@media (min-width:853px) and (min-height:1024px) {/*Retrato*/
+    h1{
+        font-size: 3em;
+        padding: 8px;
+    }
+    .divTabelas{
+        width: 79%;
+    }
+    .calcTable button{/*Botões da calculadora*/
+        font-size: 2.2em;
+    }
+    .visor{
+        font-size: 2.2em;
+    }
+    .historyTable thead td{/*Título Histórico*/
+        font-size: 2.150em;
+    }
+    .historyTime td{/*Célula que mostra hora e tempo da operação na tabela histórico*/
+        font-size: 1.9em;
+    }
+    .history_table_button{/*Célula que mostra as ultimas operações*/
         font-size: 1em;
     }
 }
-/*Tablets paisagem*/
-@media (min-width:933px) and (orientation:landscape){/*paisagem*/
-    body{
-        display: flex;
-        justify-content: start;
-    }
+/*ipads modo paisagem*/
+@media (min-width:1024px) and (max-height:600px){
     h1{
-        color: rgb(255, 0, 0);
-        font-size: 2.5em;
         padding: 15px;
-        display: flex;
     }
     .divTabelas{
-        width: 85%;
-        height: 75%;
-      
+        height: 80%;
+        width: 98%;
+        display: flex;
+        justify-content: space-between; /* Espaço entre os dois itens */
+        align-items: center; /* Alinha verticalmente os itens no centro */
     }
-    .calcTable button, .visor{/*Tamanho das fontes do bisor e botões iguais*/
-        font-size: 2em;
+    .calcTable{
+       height: 100%;
+       width: 50%;
     }
-    .historyTable thead td{/*Titulo Histórico*/
-        font-size: 2em;
-    }
-    .historyTable tbody td{/*Celula com data e hota*/
+    .visor{
         font-size: 1.5em;
+    }
+    .calcTable tbody{
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
+    .calcTable td::before {
+        padding-top: 0;
+    }
+    .historyTable{
+        height: auto; /* Altura flexível */
+        width: 50%; /* Ocupa metade da largura */
+        align-self: center; /* Centraliza verticalmente */
+    }
+    .historyTable td{
+        font-size: 1.125em;
     }
     .history_table_button{
         font-size: 1em;
     }
 }
-/*Telas maiores*/
-@media (min-width:1024px) and (orientation:landscape){
+/*Desktops*/
+@media (min-width:1024px) and (min-height:601px) {
     h1{
-        color: darkorange;
+        padding: 25px;
     }
+    .divTabelas{
+        display: flex;
+        flex-direction: row;
+        height: 75%;
+        width: 55%;
+        justify-content: space-between; /* Espaço entre os dois itens */
+        align-items: center; /* Alinha verticalmente os itens no centro */
+    }
+    .calcTable{
+        height: 100%;
+        width: 350px;
+     }
+     .visor{
+         font-size: 1.5em;
+     }
+     .calcTable tbody{
+         min-height: 100%;
+         display: flex;
+         flex-direction: column;
+     }
+     .calcTable tr{
+         flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+     }
+     .calcTable td::before {
+         padding-top: 0;
+     }
+     .historyTable{
+         height: auto; /* Altura flexível */
+         width: 50%; /* Ocupa metade da largura */
+         align-self: center; /* Centraliza verticalmente */
+     }
+     .historyTable td{
+         font-size: 1.125em;
+     }
+     .history_table_button{
+         font-size: 1em;
+     }
 }
