@@ -135,9 +135,6 @@ button:hover {
     /* Garante que a altura seja sempre 100% da largura */
 }
 
-
-
-
 /*Tabela do histórico de operações*/
 .historyTable {
     table-layout: fixed;
@@ -148,7 +145,6 @@ button:hover {
    font-size: 1.2em;
    
 }
-
 .historyTable tbody td {
     /*Células do corpo da tabela*/
     text-align: center;
@@ -294,5 +290,10 @@ button:hover {
 @media (min-width:1024px) and (orientation:landscape){
     h1{
         color: darkorange;
+    }
+    .calcTable tbody{
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 }
