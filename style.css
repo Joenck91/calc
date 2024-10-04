@@ -202,9 +202,10 @@ button:hover {
         padding-top: 0;
     }
     .calcTable tbody{
-        min-height: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
+        background-color: aqua;
     }
     .calcTable tr{
         flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
@@ -290,10 +291,7 @@ button:hover {
 @media (min-width:1024px) and (orientation:landscape){
     h1{
         color: darkorange;
-    }
-    .calcTable tbody{
-        min-height: 100%;
         display: flex;
-        flex-direction: column;
     }
+
 }
