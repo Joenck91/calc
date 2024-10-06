@@ -159,6 +159,7 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
     }
     .divTabelas{
         display: flex;
+        background-color: aqua;
         flex-direction: row;
         justify-content: space-between; /* Espaço entre os dois itens */
         align-items: center; /* Alinha verticalmente os itens no centro */
@@ -174,6 +175,7 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
     }
     .calcTable tbody{
         height: 100%;
+        background-color:blue;
         display: flex;
         flex-direction: column;
       
