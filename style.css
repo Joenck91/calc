@@ -1,5 +1,4 @@
-* {
-    /*Definições Gerais*/
+*{/*Definições Gerais*/
     margin: 0;
     border: 0;
     box-sizing: border-box;
@@ -17,21 +16,18 @@ body {
     width: 100%;
     height: 100%;
 }
-h1 {
-    /*Titulo*/
+h1 {/*Titulo*/
     padding: 5px;
     text-align: center;
 }
-.divTabelas {
-    /*--Tabelas estão dentro desta DIV*/
+.divTabelas {/*--Tabelas estão dentro desta DIV*/
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 5px;
     max-width: 95%;
 
 }
-table {
-    /* Definições gerais das tabelas*/
+table {/* Definições gerais das tabelas*/
     background-color: rgb(183, 183, 183);
     border: solid 2px rgb(128, 128, 128);
     border-radius: 15px;
@@ -40,20 +36,18 @@ table {
     width: 100%;
     font-size: 1em;
 }
-/*Tabela da Calculadora*/
-.calcTable {
+.calcTable {/*Tabela da Calculadora*/
     max-width: 100%;
     table-layout: fixed;
     overflow: hidden;
 }
-.calcTable thead {
+.calcTable thead {/*Cabeçalho onde fica o visor*/
     max-width: 100%;
     min-width: 100%;
     grid-template-columns: repeat(4, 1fr);
     /* 4 colunas de tamanho flexível */
 }
-.visorPai {
-    /*Visor esta dentro deste elemento*/
+.visorPai {/*Visor esta dentro deste elemento*/
     padding: 8px;
     display: flex;
     width: 100%;
@@ -63,23 +57,16 @@ table {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.visor {
-    /* Visar da calc*/
+.visor {/* Visor da calc*/
     font-size: 1.2em;
     max-width: 100%;
-    white-space: nowrap;
-    /* Impede a quebra de linha */
-    overflow: hidden;
-    /* Esconde o texto que ultrapassar o limite do elemento */
-    text-overflow: ellipsis;
-    /* Exibe "..." no final do texto cortado */
-    direction: ltr;
-    /* Inverte a direção do texto, mostrando os números mais recentes à esquerda */
-    text-align: right;
-    /* Alinha o texto à esquerda */
+    white-space: nowrap;/* Impede a quebra de linha */
+    overflow: hidden; /* Esconde o texto que ultrapassar o limite do elemento */
+    text-overflow: ellipsis;/* Exibe "..." no final do texto cortado */
+    direction: ltr;/* Inverte a direção do texto, mostrando os números mais recentes à esquerda */
+    text-align: right;/* Alinha o texto à esquerda */
 }
-th {
-    /*Célula do visor*/
+th {/*Célula do visor*/
     padding: 10px;
     border: 0;
     width: 100%;
@@ -95,15 +82,13 @@ th {
     text-overflow: ellipsis;
     /* Exibe "..." no final do texto cortado */
 }
-.calcTable tr {
-    /*Linhas*/
+.calcTable tr {/*Linhas*/
     max-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: right;
 }
-.calcTable td {
-    /*Células dos botões*/
+.calcTable td {/*Células dos botões*/
     box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.322),
         0px 1px 1px rgba(0, 0, 0, 0.322),
         -1px 0px 1px rgba(0, 0, 0, 0.322),
@@ -115,8 +100,11 @@ th {
     display: flex;
     border-radius: 25px;
 }
-.calcTable button {
-    /*Definições gerais dos botões da calc*/
+.calcTable td::before {/*Deixar a altura do tamanho da largura*/
+    content: '';/*Cria cobteúdo vazio*/
+    padding-top: 100%;/* Garante que a altura seja sempre 100% da largura */
+}
+.calcTable button {/*Definições gerais dos botões da calc*/
     border-radius: 5px;
     font-size: 1.125em;
     background-color: rgba(178, 178, 178, 0.978);
@@ -124,40 +112,27 @@ th {
     height: 100%;
     width: 100%;
 }
-button:hover {
-    /*Efeito quando mouse passa por cima dos botões clicáveis*/
+button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
     background-color: rgb(87, 170, 202);
 }
-.calcTable td::before {
-    content: '';
-    /* display: block;*/
-    padding-top: 100%;
-    /* Garante que a altura seja sempre 100% da largura */
-}
 
-/*Tabela do histórico de operações*/
-.historyTable {
+
+.historyTable {/*Tabela do histórico de operações*/
     table-layout: fixed;
 }
-.historyTable thead td {
-    /*titulo da tabela histórico*/
+.historyTable thead td {/*titulo da tabela histórico*/
     text-align: center;
    font-size: 1.2em;
-   
 }
-.historyTable tbody td {
-    /*Células do corpo da tabela*/
+.historyTable tbody td {/*Células do corpo da tabela*/
     text-align: center;
     padding: 1px;
     border-bottom: 1px solid rgb(128, 128, 128);
 }
-.historyTable tbody tr:last-child td {
-    /*Células da ultima linha do corpo da tabela*/
-    border-bottom: none;
-    /* Remove a borda inferior da última linha */
+.historyTable tbody tr:last-child td { /*Células da ultima linha do corpo da tabela*/
+    border-bottom: none;  /* Remove a borda inferior da última linha */
 }
-.history_table_button {
-    /*Célula que mostra as operações*/
+.history_table_button {/*Célula que mostra as operações*/
     justify-content: left;
     width: 100%;
     border-radius: 5px;
@@ -165,15 +140,11 @@ button:hover {
     cursor: pointer;
     background-color: rgb(183, 183, 183);
     height: 100%;
-    white-space: nowrap;
-    /* Impede a quebra de linha */
-    overflow: hidden;
-    /* Esconde o texto que ultrapassar o limite do elemento */
-    text-overflow: ellipsis;
-    /* Exibe "..." no final do texto cortado */
+    white-space: nowrap;/*Impede a quebra de linha */
+    overflow: hidden;/* Esconde o texto que ultrapassar o limite do elemento */
+    text-overflow: ellipsis;/* Exibe "..." no final do texto cortado */
 }
-.celulaTime {
-    /*Célula que mostra data e hora da operação*/
+.celulaTime {/*Célula que mostra data e hora da operação*/
     max-width: 50%;
 }
 
@@ -205,7 +176,7 @@ button:hover {
         height: 100%;
         display: flex;
         flex-direction: column;
-        background-color: aqua;
+      
     }
     .calcTable tr{
         flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
@@ -214,11 +185,10 @@ button:hover {
         width: 50%;
     }
 }
-
 /*tablets*/
 @media (min-width:768px) and (min-height:914px) {/*retrato*/
     h1{
-        color: aqua;
+      
         font-size: 2.5em;
         padding: 15px;
     }
@@ -236,6 +206,9 @@ button:hover {
     }
     .history_table_button{/*Celula com operação*/
         font-size: 1em;
+    }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
     }
 }
 /*iped pro*/
@@ -256,6 +229,9 @@ button:hover {
     }
     .history_table_button{/*Celula com operação*/
         font-size: 1em;
+    }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
     }
 }
 /*Tablets paisagem*/
@@ -286,6 +262,9 @@ button:hover {
     .history_table_button{
         font-size: 1em;
     }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
 }
 /*Telas maiores*/
 @media (min-width:1024px) and (orientation:landscape){
@@ -293,5 +272,9 @@ button:hover {
         color: darkorange;
         display: flex;
     }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
 
 }
+/*  FAZER PUSH E VERIFICAR NO CELULAR SE RESOLVEU  */
