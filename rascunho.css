@@ -1,91 +1,93 @@
-/*CELULARES MODO PAISAGEM*/
-@media (min-width:667px) and (max-height:430px){/*Galaxy Z Fold 5*/
-    body{
-        justify-content: center;
-        align-items:right;
-    }
+/*tablets*/
+@media (min-width:768px) and (min-height:914px) {/*retrato*/
     h1{
-        position: fixed;
-        right: 30px;
-        top: 15px;
-    }
-    .divTabelas{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 98vw;
       
-    }
-    .calcTable{
-        height: 96%;
-    }
-    .calcTable tbody{
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .calcTable tr{
-        flex-grow: 1;
-    }
-
-
-
-    .calcTable td::before {
-      padding-top: 0;
-    }
-}
-/*IPADS*/
-@media (min-width:768px) and (min-height:1024px){/*Mini*/
-    h1{
-     
-        position: static;
+        font-size: 2.5em;
         padding: 15px;
     }
     .divTabelas{
-        flex-direction: column;
-        width: 80%;
-        justify-content: start;
+        width: 75%;
     }
-    table{
-        font-size: 1.250em;
-    }
-    .calcTable{
-        height: 70%;
-    }
-    .visor{
-        font-size:1.275em;
-    }
-    .history_table_button{
-        font-size: 1.100em;
-    }
-
-}
-@media(min-width:853px) and (min-height:1366px) {
-    h1{
-        font-size: 3.5em;
-    }
-    .visor{
+    .calcTable button, .visor{/*Tamanho das fontes do bisor e botões iguais*/
         font-size: 2em;
     }
-    .calcTable button{
+    .historyTable thead td{/*Titulo Histórico*/
+        font-size: 2em;
+    }
+    .historyTable tbody td{/*Celula com data e hota*/
         font-size: 1.5em;
     }
-    .historyTable thead td{
-        font-size: 1.800em;
+    .history_table_button{/*Celula com operação*/
+        font-size: 1em;
     }
-    .celulaTime{
-        font-size:1.250em ;
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
+}
+/*iped pro*/
+@media (max-width: 1025px) and (min-height:1365px){
+    h1{
+        color: rgb(255, 0, 212);
+        padding: 25px;
+        font-size: 3em;
+    }
+    .divTabelas{
+        width: 70%;
+    }
+    .calcTable button, .visor{/*Tamanho das fontes do bisor e botões iguais*/
+        font-size: 2.250em;
+    }
+    .historyTable tbody td{/*Celula com data e hota*/
+        font-size: 1.8em;
+    }
+    .history_table_button{/*Celula com operação*/
+        font-size: 1em;
+    }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
+}
+/*Tablets paisagem*/
+@media (min-width:933px) and (orientation:landscape){/*paisagem*/
+    body{
+        display: flex;
+        justify-content: start;
+    }
+    h1{
+        color: rgb(255, 0, 0);
+        font-size: 2.5em;
+        padding: 15px;
+        display: flex;
+    }
+    .divTabelas{
+        width: 85%;
+        height: 75%;
+    }
+    .calcTable button, .visor{/*Tamanho das fontes do bisor e botões iguais*/
+        font-size: 2em;
+    }
+    .historyTable thead td{/*Titulo Histórico*/
+        font-size: 2em;
+    }
+    .historyTable tbody td{/*Celula com data e hota*/
+        font-size: 1.5em;
     }
     .history_table_button{
-        font-size: 1.250em;
+        font-size: 1em;
     }
-
-
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
 }
-/*TELAS MAIORES E DESKTOPS*/
-@media (min-width:1024px) and (max-height:800px){
+/*Telas maiores*/
+@media (min-width:1024px) and (orientation:landscape){
     h1{
-        background-color: yellow;
+        color: darkorange;
+        display: flex;
     }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
+
 }
+/*  FAZER PUSH E VERIFICAR NO CELULAR SE RESOLVEU  */
