@@ -95,7 +95,7 @@ th {/*Célula do visor*/
         0px -1px 1px rgba(0, 0, 0, 0.322);
     margin: 1px;
     padding: 0;
-    width: 33%;
+    width: 100%;
     /*aspect-ratio: 1 / 1; /* Mantém a altura igual à largura */
     display: flex;
     border-radius: 25px;
@@ -159,7 +159,6 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
     }
     .divTabelas{
         display: flex;
-        background-color: aqua;
         flex-direction: row;
         justify-content: space-between; /* Espaço entre os dois itens */
         align-items: center; /* Alinha verticalmente os itens no centro */
