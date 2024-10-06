@@ -31,8 +31,8 @@ function multiply(primeiroValor, segundoValor) {
 //FUNÇÃO DE DIVISÃO
 function split(primeiroValor, segundoValor) {
     if (segundoValor === 0) {
-        alert('Não da para dividir por 0.')
-        return null;
+        
+        return visor.textContent = `Não da para dividir por 0`;
     }
     return primeiroValor / segundoValor;
 };
@@ -93,7 +93,7 @@ function upDateTable() {
     }
     historyTable.unshift(object);//Adiciona nova operação ao ultimo indice
     console.log(historyTable);
-    rowHtml();
+    rowHtml();//Função que cria as linhas da tabela histórico
     return;
 };
 //CRIA AS LINHAS DA TABELA DE HISTÓRICO DE OPERAÇÕES
@@ -105,7 +105,7 @@ function rowHtml() {
         const row = document.createElement('tr');//Cria uma linha.
         const datetimeColumn = document.createElement('td');//Cria a celula do tempo
         datetimeColumn.textContent = object.date;//Coloca datetime no conteudo da celula
-        datetimeColumn.classList.add('celulaTime')
+        datetimeColumn.classList.add('celulaTime')//Adicionado uma classe
         const tdButton = document.createElement('td');//Cria celula das operações.
         const calcButton = document.createElement('button');//Cria botão que terá as operções
         calcButton.classList.add('history_table_button');//Adiciona uma classe ao botão
