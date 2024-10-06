@@ -169,6 +169,8 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
     .calcTable{
         width: 50%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
     }
     .calcTable td::before {
         padding-top: 0;
