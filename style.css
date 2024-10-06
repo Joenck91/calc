@@ -24,7 +24,7 @@ h1 {/*Titulo*/
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 5px;
-    max-width: 99%;
+    max-width: 95%;
 
 }
 table {/* Definições gerais das tabelas*/
@@ -162,7 +162,7 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
         justify-content: space-between; /* Espaço entre os dois itens */
         align-items: center; /* Alinha verticalmente os itens no centro */
         height: 95%;
-        width: 98%;
+        width: 95%;
     }
     .calcTable{
         width: 50%;
@@ -185,3 +185,92 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
         width: 50%;
     }
 }
+/*tablets*/
+@media (min-width:768px) and (min-height:914px) {/*retrato*/
+    h1{
+        font-size: 2.5em;
+        padding: 15px;
+    }
+    .divTabelas{
+        width: 75%;
+    }
+    .calcTable button, .visor{/*Tamanho das fontes do bisor e botões iguais*/
+        font-size: 2em;
+    }
+    .historyTable thead td{/*Titulo Histórico*/
+        font-size: 2em;
+    }
+    .historyTable tbody td{/*Celula com data e hota*/
+        font-size: 1.5em;
+    }
+    .history_table_button{/*Celula com operação*/
+        font-size: 1em;
+    }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
+}
+/*iped pro*/
+@media (max-width: 1025px) and (min-height:1365px){
+    h1{
+        padding: 25px;
+        font-size: 3em;
+    }
+    .divTabelas{
+        width: 70%;
+    }
+    .calcTable button, .visor{/*Tamanho das fontes do bisor e botões iguais*/
+        font-size: 2.250em;
+    }
+    .historyTable tbody td{/*Celula com data e hota*/
+        font-size: 1.8em;
+    }
+    .history_table_button{/*Celula com operação*/
+        font-size: 1em;
+    }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
+}
+/*Tablets paisagem*/
+@media (min-width:933px) and (orientation:landscape){/*paisagem*/
+    body{
+        display: flex;
+        justify-content: start;
+    }
+    h1{
+        font-size: 2.5em;
+        padding: 15px;
+        display: flex;
+    }
+    .divTabelas{
+        width: 85%;
+        height: 75%;
+    }
+    .calcTable button, .visor{/*Tamanho das fontes do bisor e botões iguais*/
+        font-size: 2em;
+    }
+    .historyTable thead td{/*Titulo Histórico*/
+        font-size: 2em;
+    }
+    .historyTable tbody td{/*Celula com data e hota*/
+        font-size: 1.5em;
+    }
+    .history_table_button{
+        font-size: 1em;
+    }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
+}
+/*Telas maiores*/
+@media (min-width:1024px) and (orientation:landscape){
+    h1{
+        display: flex;
+    }
+    .calcTable tr{
+        flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
+    }
+
+}
+
