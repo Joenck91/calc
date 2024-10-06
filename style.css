@@ -166,6 +166,18 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
         height: 99%;
         width: 99%;
     }
+    thead{
+        background-color: yellowgreen;
+    }
+    .calcTable tr{
+        background-color: yellow;
+    }
+    .visorPai{
+        background-color: violet;
+    }
+    .visor{
+        background-color: teal;
+    }
     .calcTable{
         width: 50%;
         height: 100%;
