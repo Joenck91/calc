@@ -147,7 +147,6 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
 .celulaTime {/*Célula que mostra data e hora da operação*/
     max-width: 50%;
 }
-
 /*Mobile*/
 @media (orientation: landscape){
     body{
@@ -162,20 +161,8 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
         flex-direction: row;
         justify-content: space-between; /* Espaço entre os dois itens */
         align-items: center; /* Alinha verticalmente os itens no centro */
-        height: 99%;
+        height: 59%;
         width: 99%;
-    }
-    thead{
-        background-color: yellowgreen;
-    }
-    .calcTable tr{
-        background-color: yellow;
-    }
-    .visorPai{
-        background-color: violet;
-    }
-    .visor{
-        background-color: teal;
     }
     .calcTable{
         width: 50%;
@@ -188,10 +175,8 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
     }
     .calcTable tbody{
         height: 100%;
-        background-color:blue;
         display: flex;
         flex-direction: column;
-      
     }
     .calcTable tr{
         flex-grow: 1;/*faz com que o item cresça para ocupar o espaço extra no contêiner */
