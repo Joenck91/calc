@@ -24,7 +24,7 @@ h1 {/*Titulo*/
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 5px;
-    max-width: 95%;
+    max-width: 99%;
 
 }
 table {/* Definições gerais das tabelas*/
@@ -162,7 +162,7 @@ button:hover {/*Efeito quando mouse passa por cima dos botões clicáveis*/
         justify-content: space-between; /* Espaço entre os dois itens */
         align-items: center; /* Alinha verticalmente os itens no centro */
         height: 59%;
-        width: 99%;
+        width: 98%;
     }
     .calcTable{
         width: 50%;
